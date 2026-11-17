@@ -1057,6 +1057,7 @@ function renderProjectCard(proj, idx) {
         <button type="button" class="plain" data-action="toggle-archive-project" data-id="${esc(proj.id)}">
           ${proj.archived ? "Reabrir projeto" : "Arquivar"}
         </button>
+        <button type="button" class="plain trash-action" data-action="delete-project" data-id="${esc(proj.id)}">Excluir</button>
         <button type="button" class="card-open" data-action="open-project" data-id="${esc(proj.id)}">
           Abrir projeto ↗
         </button>
@@ -2338,6 +2339,17 @@ document.addEventListener("click", (e) => {
     if (target) {
       target.archived = !target.archived;
       showToast(target.archived ? "Projeto arquivado." : "Projeto reaberto.");
+      scheduleSave(true);
+      render();
+    }
+    return;
+  }
+
+  if (action === "delete-project") {
+    const target = state.data.projects.find((p) => p.id === btn.dataset.id);
+    if (target && confirm(`Excluir o projeto "${target.name}" e todo o seu conteúdo? Esta ação não pode ser desfeita.`)) {
+      state.data.projects = state.data.projects.filter((p) => p.id !== target.id);
+      showToast("Projeto excluído.");
       scheduleSave(true);
       render();
     }

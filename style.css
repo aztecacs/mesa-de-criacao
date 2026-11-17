@@ -959,6 +959,10 @@ footer > span {
   font-size: 11px;
 }
 
+.card-actions .trash-action {
+  color: #aa7b82;
+}
+
 .card-open {
   color: #5e72c7;
   background: #f0f3fc;
