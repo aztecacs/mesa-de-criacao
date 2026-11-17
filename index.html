@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mesa de criação — Ideias que ganham forma</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Tela de PIN / Chave de Acesso -->
+  <div id="pin-gate" class="pin-gate">
+    <div class="pin-card">
+      <div class="pin-brand">
+        <span class="logo" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="6" width="20" height="12" rx="4"></rect>
+            <path d="M6 12h4"></path>
+            <path d="M8 10v4"></path>
+            <circle cx="15" cy="11" r="1"></circle>
+            <circle cx="18" cy="13" r="1"></circle>
+          </svg>
+        </span>
+        <div>
+          <strong>Mesa de criação</strong>
+          <small>IDEIAS QUE GANHAM FORMA</small>
+        </div>
+      </div>
+
+      <h1>Acesso da dupla<span class="title-dot">.</span></h1>
+      <p class="pin-desc">Digite a chave de acesso combinada entre Gabriel e Jeferson para abrir os projetos compartilhados.</p>
+
+      <form id="pin-form" class="pin-form" autocomplete="off">
+        <label class="field">
+          <span>Chave de acesso (PIN)</span>
+          <div class="pin-input-wrap">
+            <input id="pin-input" type="password" placeholder="Digite a senha..." required autofocus />
+            <button type="button" id="pin-toggle" class="pin-toggle" title="Mostrar ou ocultar senha" aria-label="Mostrar ou ocultar senha">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+            </button>
+          </div>
+        </label>
+        <p id="pin-error" class="pin-error" hidden>Chave de acesso incorreta. Tente novamente.</p>
+        <button type="submit" class="primary pin-submit">Entrar na mesa</button>
+      </form>
+
+      <p class="pin-footnote">Após o primeiro acesso, este navegador permanece desbloqueado até você clicar em Bloquear.</p>
+    </div>
+  </div>
+
+  <!-- Aplicação Principal -->
+  <div id="app" hidden></div>
+
+  <!-- Modais e Notificações -->
+  <div id="modal-root"></div>
+  <div id="toast-root" class="toast-root" aria-live="polite"></div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
