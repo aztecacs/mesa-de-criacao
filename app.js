@@ -2191,8 +2191,8 @@ function openProjectModal(existingProj = null) {
   const modalRoot = document.getElementById("modal-root");
   const stages = ["Ideia", "Em exploração", "Protótipo", "Em desenvolvimento"];
   modalRoot.innerHTML = `
-    <div class="modal-backdrop" data-action="close-modal">
-      <div class="project-modal" onclick="event.stopPropagation()">
+    <div class="modal-backdrop">
+      <div class="project-modal">
         <button type="button" class="modal-close" data-action="close-modal" aria-label="Fechar">✕</button>
         <div class="eyebrow">${existingProj ? "CONFIGURAÇÕES DO PROJETO" : "ESPAÇO PARA UMA NOVA IDEIA"}</div>
         <h2>${existingProj ? "Editar dados do projeto" : "Novo projeto"}</h2>
@@ -2286,6 +2286,11 @@ function render() {
 }
 
 document.addEventListener("click", (e) => {
+  if (e.target.matches(".modal-backdrop")) {
+    closeModal();
+    return;
+  }
+
   const btn = e.target.closest("[data-action]");
   if (!btn) return;
 
