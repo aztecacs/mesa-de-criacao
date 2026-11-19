@@ -857,13 +857,7 @@ function stageClass(stage) {
 function renderBrandLogo() {
   return `
     <span class="logo" aria-hidden="true">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="2" y="6" width="20" height="12" rx="4"></rect>
-        <path d="M6 12h4"></path>
-        <path d="M8 10v4"></path>
-        <circle cx="15" cy="11" r="1"></circle>
-        <circle cx="18" cy="13" r="1"></circle>
-      </svg>
+      <img src="./icon 1.png" alt="" />
     </span>
   `;
 }
@@ -1017,19 +1011,14 @@ function renderProjectCard(proj, idx) {
   const totalSteps = (proj.checklist || []).length || 7;
   const pct = Math.round((agreedCount / totalSteps) * 100);
   const tone = proj.tone ?? idx % 4;
+  const projectIcon = tone % 2 === 1 ? "./icon 3.png" : "./icon 2.png";
   const desc = proj.description || "Sem descrição curta ainda.";
 
   return `
     <article class="project-card tone-${tone}">
       <div class="card-top">
         <div class="project-symbol">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="6" width="20" height="12" rx="4"></rect>
-            <path d="M6 12h4"></path>
-            <path d="M8 10v4"></path>
-            <circle cx="15" cy="11" r="1"></circle>
-            <circle cx="18" cy="13" r="1"></circle>
-          </svg>
+          <img src="${projectIcon}" alt="" />
         </div>
         <span class="project-stage ${stageClass(proj.stage)}">${esc(proj.stage || "Ideia")}</span>
       </div>

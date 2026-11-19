@@ -184,12 +184,14 @@ input:focus, textarea:focus, select:focus {
 }
 
 .logo {
-  color: #fff;
-  background: #5468d4;
-  border-radius: 12px;
-  padding: 10px;
   display: flex;
   flex-shrink: 0;
+}
+
+.logo img {
+  display: block;
+  width: 42px;
+  height: 42px;
 }
 
 .project-label {
@@ -846,9 +848,6 @@ footer > span {
 }
 
 .project-symbol {
-  color: #6577cd;
-  background: #edf0fc;
-  border-radius: 12px;
   justify-content: center;
   align-items: center;
   width: 52px;
@@ -856,19 +855,10 @@ footer > span {
   display: flex;
 }
 
-.tone-1 .project-symbol {
-  color: #53957b;
-  background: #e9f3ef;
-}
-
-.tone-2 .project-symbol {
-  color: #bc9565;
-  background: #fcf1e5;
-}
-
-.tone-3 .project-symbol {
-  color: #9979b8;
-  background: #f3edf9;
+.project-symbol img {
+  display: block;
+  width: 52px;
+  height: 52px;
 }
 
 .project-stage {
